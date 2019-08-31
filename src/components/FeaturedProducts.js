@@ -4,8 +4,7 @@ const { Meta } = Card;
 
 export default class FeaturedProducts extends Component {
 
-    constructor(props){
-        super(props);
+    componentWillMount(){
         this.obj = [
             {
                 title: 'Product 1',

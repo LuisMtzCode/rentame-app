@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { Icon } from 'antd';
+import { Layout, Menu } from 'antd';
 
+import Categories from "./Categories";
 import Banner from './Banner';
 import FeaturedProducts from './FeaturedProducts';
 
-const { Header, Content, Footer } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content } = Layout;
 
 export default class Admin extends Component {
     render() {
@@ -23,21 +22,7 @@ export default class Admin extends Component {
                         <Menu.Item key="3">RENTAME YA!</Menu.Item>
                     </Menu>
                 </Header>
-                <Header  className="categories">
-                <Menu mode="horizontal">
-                        <SubMenu
-                            title={
-                                <span>
-                                    <Icon type="setting" />
-                                    Categorías
-                                </span>
-                            }
-                        >
-                            <Menu.Item key="setting:1">Option 1</Menu.Item>
-                            <Menu.Item key="setting:2">Option 2</Menu.Item>
-                        </SubMenu>
-                    </Menu>
-                </Header>
+                <Categories/>
                 <Banner />
                 <Content style={{background: '#fff'}}>
                     {/* <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
