@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'antd';
-import { Button } from 'antd';
+import { Row, Col , Button} from 'antd';
+
 
 export default class login extends Component {
     render() {

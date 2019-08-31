@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd';
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'antd/dist/antd'; // or 'antd/dist/antd.less'
 
 export default class Banner extends Component {
     render() {

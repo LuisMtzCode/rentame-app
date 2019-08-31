@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './Components/Login'
-import Admin from './Components/Admin.js'
+import Admin from './Components/Admin'
 import 'antd/dist/antd.css';
 
 export default class App extends React.Component {
