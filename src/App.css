@@ -50,3 +50,23 @@
 .featuredProducts .btn-rent{
   border-radius: 0px 0px 2px 2px;
 }
+
+/* AddProduct Component */
+.addProduct {  
+  border-color: blue; 
+}
+
+.imagen {
+  display: block;
+  margin: auto;
+}
+
+.centrado {
+  display: block;
+  margin: auto;  
+
+  width: 210px;
+height: 30px;
+overflow: hidden;
+border: 1px solid #444;
+}
