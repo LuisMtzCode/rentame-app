@@ -31,6 +31,10 @@
 .categories{
   background: #fff !important;
   height: auto !important;
+  padding: 0 !important;
+}
+.categories .ant-menu{
+  padding: 0 50px;
 }
 
 /* Featured Products Component */
@@ -49,4 +53,14 @@
 }
 .featuredProducts .btn-rent{
   border-radius: 0px 0px 2px 2px;
+}
+
+/* Sidebar Filters Component */
+.sideBarFilter .item{
+
+}
+
+/* Utlities classes */
+.transparent{
+  background-color: transparent !important;
 }
