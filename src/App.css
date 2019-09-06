@@ -56,8 +56,8 @@
 }
 
 /* Sidebar Filters Component */
-.sideBarFilter .item{
-
+.sideBarFilter .ant-select{
+  width: 100%;
 }
 
 /* Utlities classes */
