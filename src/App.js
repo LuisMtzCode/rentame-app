@@ -3,7 +3,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 
 import { Layout } from 'antd';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import LandingPage from './Components/LandingPage';
 import LayoutProducts from './Components/LayoutProducts';
@@ -18,8 +18,10 @@ export default class App extends React.Component {
         <Layout className="layout">
           <HeaderApp />
           <Content style={{ background: '#fff' }}>
-            <Route exact path="/" component={LandingPage}></Route>
-            <Route path="/products" component={LayoutProducts}></Route>
+            <Switch>
+              <Route exact path="/" component={LandingPage}></Route>
+              <Route path="/products" component={LayoutProducts}></Route>
+            </Switch>
           </Content>
         </Layout>
       </div>

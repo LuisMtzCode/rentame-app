@@ -59,6 +59,15 @@
 .sideBarFilter .ant-select{
   width: 100%;
 }
+.sideBarFilter .ant-list{
+  padding: 0px 20px;
+}
+.sideBarFilter .ant-list-split .ant-list-item{
+  border-bottom: 0;
+}
+.sideBarFilter .filter-item{
+  width: 100%;  
+}
 
 /* Utlities classes */
 .transparent{
