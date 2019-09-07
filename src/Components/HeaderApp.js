@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { Menu, Layout } from 'antd';
+
+import Login from './Login';
 import Categories from "./Categories";
-import { Layout } from 'antd';
 const { Header } = Layout;
 
 export default class HeaderApp extends Component {
@@ -15,7 +16,7 @@ export default class HeaderApp extends Component {
                         defaultSelectedKeys={['2']}
                         style={{ lineHeight: '64px' }}
                     >
-                        <Menu.Item key="2">Login</Menu.Item>
+                        <Menu.Item key="2"><Login/></Menu.Item>
                         <Menu.Item key="3">RENTAME YA!</Menu.Item>
                     </Menu>
                 </Header>

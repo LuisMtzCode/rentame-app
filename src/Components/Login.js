@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-import { Button } from 'antd';
-import { Modal } from 'antd';
+import { Button, Modal, Form, Input } from 'antd';
+import axios from 'axios';
 
-
-export default class login extends Component {
-    state = { visible: false };
+export default class Login extends Component {
+    constructor(props){
+        super(props)
+        this.state = { 
+            visible: false,
+            user: '',
+            password: ''
+         };
+    }
 
     showModal = () => {
         this.setState({
@@ -26,10 +32,28 @@ export default class login extends Component {
         });
     };
 
+    handleChange(evt) {
+        const value = evt.target.value;
+        this.setState({
+          ...this.state,
+          [evt.target.name]: value
+        });
+    }
+
+    onSubmit(event){
+        event.preventDefault();
+        axios.post(process.API_URL + 'login', {
+            user: this.state.user,
+            password: this.state.password
+        }).then(confirmation => {
+            console.log(confirmation);
+        });
+    }
+
     render() {
         return (
             <div >
-                <Button type="primary" onClick={this.showModal} >
+                <Button type="link" onClick={this.showModal} >
                     Login
                 </Button>
                 <Modal
@@ -38,10 +62,25 @@ export default class login extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
+                    <Form onSubmit={(e) => {this.onSubmit(e)}}>
+                        <Form.Item
+                        label='Usuario'
+                        >
+                            <Input name="user" onChange={e=>this.handleChange(e)}/>
+                        </Form.Item>
+                        <Form.Item
+                        label='Contraseña'
+                        >
+                            <Input.Password name="password" onChange={e=>this.handleChange(e)}/>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" shape="round" htmlType="submit">Iniciar sesión</Button>
+                        </Form.Item>
+                    </Form>
                 </Modal>
             </div>
         );
     }
-    }
+}
 
 
