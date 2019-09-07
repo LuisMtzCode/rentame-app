@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Menu, Layout } from 'antd';
+import { Menu, Layout, Typography } from 'antd';
 import { withRouter } from 'react-router-dom'
 
 import Login from './Login';
-import Categories from "./Categories";
+import Categories from './Categories';
+import LogoWhite from '../assets/img/logo-white.png';
 const { Header } = Layout;
 
 export default withRouter(class HeaderApp extends Component {
-    changeRoute(){
-        console.log('add');
-        this.props.history.push('/products/add');
+    changeRoute(path){
+        this.props.history.push(path);
     }
     
     render() {
@@ -21,9 +21,11 @@ export default withRouter(class HeaderApp extends Component {
                         mode="horizontal"
                         defaultSelectedKeys={['2']}
                         style={{ lineHeight: '64px' }}
+                        
                     >
+                        <Menu.Item className="menu-logo" key="1" onClick={()=>this.changeRoute('/')}><img  width="100" src={LogoWhite} alt="Logo"/></Menu.Item>
+                        <Menu.Item key="3" onClick={()=>this.changeRoute('/products/add')}><Typography>RENTA YA!</Typography></Menu.Item>
                         <Menu.Item key="2"><Login/></Menu.Item>
-                        <Menu.Item key="3" onClick={()=>this.changeRoute()}>RENTAME YA!</Menu.Item>
                     </Menu>
                 </Header>
                 <Categories/>

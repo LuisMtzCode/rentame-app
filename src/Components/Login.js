@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, Form, Input } from 'antd';
+import { Button, Modal, Form, Input, Typography } from 'antd';
 import axios from 'axios';
 
 export default class Login extends Component {
@@ -54,7 +54,7 @@ export default class Login extends Component {
         return (
             <div >
                 <Button type="link" onClick={this.showModal} >
-                    Login
+                    <Typography>Login</Typography>
                 </Button>
                 <Modal
                     title=" Login "

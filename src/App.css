@@ -4,6 +4,12 @@
 .menu {
   text-align: right;
 }
+.menu-logo{
+  float: left;
+}
+.menu .ant-typography{
+  color: #fff;
+}
 
 /* Banner component */
 .banner {

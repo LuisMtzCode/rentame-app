@@ -17,7 +17,7 @@ export default withRouter(class Categories extends Component {
             },
             {
                 title: 'Categorías',
-                slug: '/categories',
+                slug: '',
                 icon: 'setting',
                 options: [
                     {
@@ -32,7 +32,7 @@ export default withRouter(class Categories extends Component {
             },
             {
                 title: 'Vender',
-                slug: '',
+                slug: '/products/add',
                 icon: 'notification',
                 options: []
             },
