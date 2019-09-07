@@ -3,8 +3,8 @@ import { Row, Col, Card, Button } from 'antd';
 const { Meta } = Card;
 
 export default class FeaturedProducts extends Component {
-
-    componentWillMount(){
+    constructor(props){
+        super(props);
         this.obj = [
             {
                 title: 'Product 1',

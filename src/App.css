@@ -31,6 +31,10 @@
 .categories{
   background: #fff !important;
   height: auto !important;
+  padding: 0 !important;
+}
+.categories .ant-menu{
+  padding: 0 50px;
 }
 
 /* Featured Products Component */
@@ -51,6 +55,7 @@
   border-radius: 0px 0px 2px 2px;
 }
 
+
 /* AddProduct Component */
 .addProduct {  
   border-color: blue; 
@@ -64,9 +69,27 @@
 .centrado {
   display: block;
   margin: auto;  
-
   width: 210px;
-height: 30px;
-overflow: hidden;
-border: 1px solid #444;
+  height: 30px;
+  overflow: hidden;
+  border: 1px solid #444;
+}
+
+/* Sidebar Filters Component */
+.sideBarFilter .ant-select{
+  width: 100%;
+}
+.sideBarFilter .ant-list{
+  padding: 0px 20px;
+}
+.sideBarFilter .ant-list-split .ant-list-item{
+  border-bottom: 0;
+}
+.sideBarFilter .filter-item{
+  width: 100%;  
+}
+
+/* Utlities classes */
+.transparent{
+  background-color: transparent !important;
 }
