@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Modal, Form, Input, Typography } from 'antd';
+import LogoWhite from '../assets/img/logo-white.png';
 import axios from 'axios';
 
 export default class Login extends Component {
@@ -7,6 +8,7 @@ export default class Login extends Component {
         super(props)
         this.state = { 
             visible: false,
+            loading: false,
             user: '',
             password: ''
          };
@@ -14,21 +16,21 @@ export default class Login extends Component {
 
     showModal = () => {
         this.setState({
-        visible: true,
+            visible: true,
         });
     };
 
     handleOk = e => {
         console.log(e);
         this.setState({
-        visible: false,
+            loading: true,
         });
     };
 
     handleCancel = e => {
         console.log(e);
         this.setState({
-        visible: false,
+            visible: false,
         });
     };
 
@@ -57,11 +59,17 @@ export default class Login extends Component {
                     <Typography>Login</Typography>
                 </Button>
                 <Modal
-                    title=" Login "
+                    width="40%"
+                    className="modal-login"
+                    title={<img src={LogoWhite} width="150" alt="Logo" />}
                     visible={this.state.visible}
+                    okText="Iniciar sesión"
                     onOk={this.handleOk}
+                    cancelText="Cancelar"
                     onCancel={this.handleCancel}
+                    confirmLoading={this.state.loading}
                 >
+                    <Typography.Title level={4}>Inicio de sesión</Typography.Title>
                     <Form onSubmit={(e) => {this.onSubmit(e)}}>
                         <Form.Item
                         label='Usuario'
@@ -73,9 +81,9 @@ export default class Login extends Component {
                         >
                             <Input.Password name="password" onChange={e=>this.handleChange(e)}/>
                         </Form.Item>
-                        <Form.Item>
+                        {/* <Form.Item>
                             <Button type="primary" shape="round" htmlType="submit">Iniciar sesión</Button>
-                        </Form.Item>
+                        </Form.Item> */}
                     </Form>
                 </Modal>
             </div>

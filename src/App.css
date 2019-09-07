@@ -11,6 +11,16 @@
   color: #fff;
 }
 
+/* Login Component */
+.modal-login .ant-modal-header{
+  background: #001529;
+  text-align: center;
+  padding: 24px;
+}
+.modal-login .ant-form-item{
+  margin-bottom: 0;
+}
+
 /* Banner component */
 .banner {
   height:400px;

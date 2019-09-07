@@ -10,6 +10,12 @@ export default withRouter(class Categories extends Component {
         super(props)
         this.categories = [
             {
+                title: 'Inicio',
+                slug: '/',
+                icon: 'home',
+                options: []
+            },
+            {
                 title: 'Productos',
                 slug: '/products',
                 icon: 'shop',
