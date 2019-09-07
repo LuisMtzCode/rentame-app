@@ -81,7 +81,6 @@ export default class AddProduct extends Component {
                         > 
                     <div style={{ margin: '12px 0' }} />
                     <TextArea
-                        addonBefore="Descripción"
                         value={value}
                         onChange={this.onChange}
                         placeholder="Breve descripción del articulo. Ejemplo: giro izq y der. 5 velocidades" id="Descripcion"

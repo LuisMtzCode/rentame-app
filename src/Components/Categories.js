@@ -11,13 +11,13 @@ export default withRouter(class Categories extends Component {
         this.categories = [
             {
                 title: 'Productos',
-                slug: 'products',
+                slug: '/products',
                 icon: 'shop',
                 options: []
             },
             {
                 title: 'Categorías',
-                slug: 'categories',
+                slug: '/categories',
                 icon: 'setting',
                 options: [
                     {
