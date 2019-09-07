@@ -4,6 +4,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
+if(process.env.NODE_ENV === 'development'){
+    process.API_URL = 'http://localhost:8000/';
+}
+else if(process.env.NODE_ENV === 'production'){
+
+}
+console.log(process.env.NODE_ENV);
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
