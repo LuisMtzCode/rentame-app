@@ -1,39 +1,24 @@
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 
-import Categories from "./Categories";
-import Login from "./Login";
+import HeaderApp from './HeaderApp';
+import LayoutProducts from './LayoutProducts';
 import Banner from './Banner';
 import FeaturedProducts from './FeaturedProducts';
 
-
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export default class Admin extends Component {
     render() {
         return (
             <Layout className="layout">
-                <Header>
-                    <Menu className='menu'
-                        theme="dark"
-                        mode="horizontal"
-                        defaultSelectedKeys={['2']}
-                        style={{ lineHeight: '64px' }}
-                    >
-                        <Menu.Item key="2" onClick={this.showModal}>
-                        <Login/>
-                        </Menu.Item>
-                        <Menu.Item key="3">RENTAME YA!</Menu.Item>
-                    </Menu>
-                </Header>
-                <Categories/>
+                {/* <HeaderApp />
                 <Banner />
                 <Content style={{background: '#fff'}}>
-                    {/* <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
 
-                    </div> */}
                     <FeaturedProducts />
-                </Content>
+                </Content> */}
+                    <LayoutProducts/>
             </Layout>
         )
     }
