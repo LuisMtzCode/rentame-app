@@ -5,6 +5,7 @@ import HeaderApp from './HeaderApp';
 import LayoutProducts from './LayoutProducts';
 import Banner from './Banner';
 import FeaturedProducts from './FeaturedProducts';
+import AddProduct from './AddProduct';
 
 const { Content } = Layout;
 
