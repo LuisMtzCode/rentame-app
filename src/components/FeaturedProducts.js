@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, Button } from 'antd';
+import axios from 'axios';
 const { Meta } = Card;
 
 export default class FeaturedProducts extends Component {
     constructor(props){
         super(props);
+        axios.get(`${process.API_URL}products/featured`).then(featuredProducts => {
+            this.featuredProducts = featuredProducts;
+        });
         this.obj = [
             {
                 title: 'Product 1',

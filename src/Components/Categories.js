@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Menu } from 'antd';
 import { Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 const { SubMenu } = Menu;
 
 export default withRouter(class Categories extends Component {
