@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, Form, Input, Typography } from 'antd';
+import { Button, Modal, Form, Input, Typography, Icon } from 'antd';
 import LogoWhite from '../assets/img/logo-white.png';
 import axios from 'axios';
 
@@ -59,9 +59,8 @@ export default class Login extends Component {
                     <Typography>Login</Typography>
                 </Button>
                 <Modal
-                    width="40%"
                     className="modal-login"
-                    title={<img src={LogoWhite} width="150" alt="Logo" />}
+                    title={<img src={LogoWhite} alt="Logo" />}
                     visible={this.state.visible}
                     okText="Iniciar sesión"
                     onOk={this.handleOk}
@@ -74,12 +73,18 @@ export default class Login extends Component {
                         <Form.Item
                         label='Usuario'
                         >
-                            <Input name="user" onChange={e=>this.handleChange(e)}/>
+                            <Input 
+                            name="user" 
+                            onChange={e=>this.handleChange(e)} 
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}/>
                         </Form.Item>
                         <Form.Item
                         label='Contraseña'
                         >
-                            <Input.Password name="password" onChange={e=>this.handleChange(e)}/>
+                            <Input.Password
+                            name="password"
+                            onChange={e=>this.handleChange(e)}
+                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}/>
                         </Form.Item>
                         {/* <Form.Item>
                             <Button type="primary" shape="round" htmlType="submit">Iniciar sesión</Button>

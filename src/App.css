@@ -12,10 +12,17 @@
 }
 
 /* Login Component */
+.modal-login{
+  width: 40%;
+}
 .modal-login .ant-modal-header{
   background: #001529;
   text-align: center;
   padding: 24px;
+}
+.modal-login .ant-modal-header img{
+  width: 150px;
+  max-width: 100%;
 }
 .modal-login .ant-form-item{
   margin-bottom: 0;
