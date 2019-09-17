@@ -12,12 +12,18 @@ import HeaderApp from './Components/HeaderApp';
 const { Content } = Layout;
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.user = null;
+  }
+  
   render() {
     return (
       <div className="App">
         <Layout className="layout">
-          <HeaderApp />
+          <HeaderApp user={ this.user }/>
           <Content style={{ background: '#fff' }}>
+            {this.user}
             <Switch>
               <Route exact path="/" component={LandingPage}></Route>
               <Route path="/products" component={LayoutProducts}></Route>

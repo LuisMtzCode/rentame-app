@@ -25,7 +25,7 @@ export default withRouter(class HeaderApp extends Component {
                     >
                         <Menu.Item className="menu-logo" key="1" onClick={()=>this.changeRoute('/')}><img  width="100" src={LogoWhite} alt="Logo"/></Menu.Item>
                         <Menu.Item key="3" onClick={()=>this.changeRoute('/products/add')}><Typography>Renta!</Typography></Menu.Item>
-                        <Menu.Item key="2"><Login/></Menu.Item>
+                        <Menu.Item key="2"><Login user={this.props.user}/></Menu.Item>
                     </Menu>
                 </Header>
                 <Categories/>

@@ -5,11 +5,12 @@ import axios from 'axios';
 
 export default class Login extends Component {
     constructor(props){
-        super(props)
-        this.state = { 
+        super(props);
+        console.log(this.props)
+        this.state = {
             visible: false,
             loading: false,
-            user: '',
+            userName: '',
             password: ''
          };
     }
@@ -25,6 +26,7 @@ export default class Login extends Component {
         this.setState({
             loading: true,
         });
+        this.onSubmit();
     };
 
     handleCancel = e => {
@@ -42,13 +44,18 @@ export default class Login extends Component {
         });
     }
 
-    onSubmit(event){
-        event.preventDefault();
+    onSubmit(){
         axios.post(process.API_URL + 'login', {
-            user: this.state.user,
+            userName: this.state.user,
             password: this.state.password
-        }).then(confirmation => {
-            console.log(confirmation);
+        })
+        .then(confirmation => {
+            this.setState({
+                loading: false,
+                visible: false
+            });
+            this.props.user = confirmation;
+            console.log('confirmation', this.props.user);
         });
     }
 
