@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
 
+#root, .App, .ant-layout{
+  height: 100%;
+}
+
 /* Admin Component*/
 .menu {
   text-align: right;
@@ -141,6 +145,7 @@
 }
 .detailProduct .total{
   text-align: right;
+  margin-top: 30px;
 }
 .detailProduct .ant-calendar-picker-input{
   height: 100%;

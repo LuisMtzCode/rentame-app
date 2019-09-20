@@ -69,7 +69,7 @@ export default class SidebarFilters extends Component {
                             <Breadcrumb.Item>Productos</Breadcrumb.Item>
                         </Breadcrumb>
                     }
-                    footer={<div>Footer</div>}
+                    // footer={<div>Footer</div>}
                     dataSource={this.data}
                     renderItem={item => (
                         <List.Item>

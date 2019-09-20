@@ -36,7 +36,7 @@ export default class LayoutProducts extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Layout>
                     <Switch>
                         <Route path="/products/add">
@@ -51,7 +51,7 @@ export default class LayoutProducts extends Component {
                         </Route>
                     </Switch>
                 </Layout>
-            </div>
+            </React.Fragment>
         )
     }
 }

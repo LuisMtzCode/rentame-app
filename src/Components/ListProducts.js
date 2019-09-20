@@ -16,7 +16,7 @@ export default withRouter(class ListProducts extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <List
                 className="list-products" 
                 itemLayout="vertical"
@@ -51,7 +51,7 @@ export default withRouter(class ListProducts extends Component {
                     </List.Item>
                 )}
                 />
-            </div>
+            </React.Fragment>
         )
     }
 })

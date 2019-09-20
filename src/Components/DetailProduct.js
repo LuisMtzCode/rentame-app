@@ -17,18 +17,28 @@ export default class DetailProduct extends Component {
             loading_date: false,
             icon_validation: '',
             button_disabled: true,
+            price: ''
         }
         const id_product = this.props.match.params.id;
         if(this.props.match.params.id){
             axios.get(`${process.API_URL}products/${id_product}`).then(data => {
                 const product = data.data;
                 this.setState({
+                    loading: false,
                     ...product,
-                    loading: false
                 });
             });
         }
     }
+    
+    renderStars = (stars) => {
+        let starsD = [];
+        for (let i = 0; i < Number(stars); i++) {
+            starsD.push(<Icon key={i} type="star" theme='twoTone' twoToneColor='#EED555' />);
+        }
+        return starsD;
+    }
+
     handlerChangeDate(dates){
         if(dates && dates.length === 2){
             this.setState({
@@ -92,29 +102,30 @@ export default class DetailProduct extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {
-                this.state.loading ? <Icon type="loading" /> 
+                this.state.loading ? 
+                (<Icon type="loading" style={{fontSize: '50px'}} />)
                 :
-                <Layout className="detailProduct">
+                (<Layout className="detailProduct">
                     <Layout style={{ padding: '0 24px 24px', background: '#fff' }}>
-                        <div className="text-center">
+                        <div className="text-center" style={{margin: '20px 0px'}}>
                             <img width="400" src={this.state.img} alt={this.state.title}/>
                         </div>
-                        <Typography.Title level={2} style={{marginBottom: '0'}}>{this.state.title}</Typography.Title>
+                        <Typography.Title level={2} style={{marginBottom: '0'}}>{this.state.title} {this.renderStars(this.state.stars)}</Typography.Title>
                         <Typography.Text disabled style={{marginBottom: '20px'}}>{this.state.brand}</Typography.Text>
                         <div className="description">
                             <Typography.Text>{this.state.description}</Typography.Text>
+                            <Typography.Title level={4}>Precio por día: ${Number(this.state.price).toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</Typography.Title>
                         </div>
                     </Layout>
-                    <Sider width='20%' className="transparent" style={{padding: '0 5px'}}>
-                        <Form>
-                            <Form.Item label="Rango de fechas">
-                                <RangePicker className="rangeDate" onChange={dates=>{this.handlerChangeDate(dates)}} />
-                                <div style={{textAlign: 'right'}}>
-                                    {this.state.loading_date ? <Icon type="loading" /> : this.state.icon_validation}
-                                </div>
-                            </Form.Item>
+                    <Sider width='20%' className="transparent" style={{padding: '10px 5px'}}>
+                        <Form >
+                            <Typography.Title level={4} style={{fontSize:'16px'}}>Rango por fechas</Typography.Title>
+                            <RangePicker className="rangeDate" onChange={dates=>{this.handlerChangeDate(dates)}} />
+                            <div style={{textAlign: 'right'}}>
+                                {this.state.loading_date ? <Icon type="loading" /> : this.state.icon_validation}
+                            </div>
                             <div className="total">
                                 <Typography.Text type="secondary">Días: {this.state.days}</Typography.Text> <br/>
                                 <Typography.Text type="secondary">P/día: ${Number(this.state.price).toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</Typography.Text><br/>
@@ -128,9 +139,9 @@ export default class DetailProduct extends Component {
                             </div>
                         </Form>
                     </Sider>
-                </Layout>
+                </Layout>)
                 }
-            </div>
+            </React.Fragment>
         )
     }
 }
