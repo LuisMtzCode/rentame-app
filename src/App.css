@@ -62,6 +62,8 @@
 }
 .categories .ant-menu{
   padding: 0 50px;
+  width: fit-content;
+  margin: auto;
 }
 
 /* Featured Products Component */

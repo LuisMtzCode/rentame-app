@@ -6,12 +6,14 @@ export default class Rents extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             rents: []
         };
         axios.get(`${process.API_URL}rents`)
         .then(rents => {
             console.log(rents.data);
             this.setState({
+                loading: false,
                 rents: rents.data
             });
         })
@@ -24,6 +26,7 @@ export default class Rents extends Component {
                     bordered={true}
                     itemLayout="vertical"
                     dataSource={this.state.rents}
+                    loading={this.state.loading}
                     renderItem={product => (
                         <List.Item
                             extra={
