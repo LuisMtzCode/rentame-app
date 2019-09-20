@@ -102,7 +102,7 @@ export default class AddProduct extends Component {
                 descripcion: 'Tanque de gas de 5 kilogramos. Ideal para puesto de comida en calle. No incluye el llenado. tanque vacio',
                 precio: '99.00',
                 marca:'Urrea',
-                estatus:'disponible para renta',
+                estatus:'disponible para renta ahora',
                 disponibilidad:'21/09/2019-23/09/2019',
             },
         ];
