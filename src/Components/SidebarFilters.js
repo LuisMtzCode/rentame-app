@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Layout, List, Typography, Breadcrumb, Select, Input } from 'antd';
 
 const { Title } = Typography;
@@ -11,9 +10,12 @@ const { Sider } = Layout;
 export default class SidebarFilters extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            categories: this.props.categories
+        };
         this.data = [
             <div className="filter-item"><Title level={4} disabled>Ordenar</Title>
-                <Select name="order" id="order" defaultValue="relevant" onChange={this.handleChange}>
+                <Select name="order" id="order" defaultValue="relevant" onChange={e=>{this.props.handlerFilter(e)}}>
                     <Option value="relevant">Más relevantes</Option>
                     <Option value="low-price">Menor precio</Option>
                     <Option value="hight-price">Mayor precio</Option>
@@ -21,7 +23,7 @@ export default class SidebarFilters extends Component {
             <div className="filter-item">
                 <Title level={4} disabled>Precio</Title>
                 <InputGroup compact>
-                    <Input style={{ width: '40%', textAlign: 'center' }} placeholder="Min" />
+                    <Input style={{ width: '40%', textAlign: 'center' }} id="min" placeholder="Min" onChange={e=>{this.props.handlerFilter(e)}}/>
                     <Input
                         style={{
                             width: '20%',
@@ -32,18 +34,26 @@ export default class SidebarFilters extends Component {
                         placeholder="~"
                         disabled
                     />
-                    <Input style={{ width: '40%', textAlign: 'center', borderLeft: 0 }} placeholder="Max" />
+                    <Input style={{ width: '40%', textAlign: 'center', borderLeft: 0 }} id="max" placeholder="Max" onChange={e=>{this.props.handlerFilter(e)}}/>
                 </InputGroup>
             </div>,
             <div>
                 <Title level={4} disabled>Categorías</Title>
                 <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
+                    {this.state.categories.map((category, i) => {
+                        return <li key={i}><Typography.Text>{category}</Typography.Text></li>
+                    })}
                 </ul>
             </div>,
         ];
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.categories.length !== this.props.categories.length) {
+            this.setState({
+                categories: this.props.categories
+            });
+        }
     }
 
     handleChange() {

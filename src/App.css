@@ -98,6 +98,29 @@
   border: 1px solid #444;
 }
 
+/* List products */
+.list-products .ant-list-item, .list-rents .ant-list-item{
+  flex-direction: row-reverse;
+}
+.list-products .ant-list-item .ant-list-item-extra, .list-rents .ant-list-item .ant-list-item-extra{
+  margin-left: 0;
+  margin-right: 40px;  
+}
+.list-products .item-right{
+  width: fit-content;
+}
+.list-products .stars-container{
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* List Rents */
+.list-rents .ant-list-item{
+  width: fit-content;
+  margin: auto;
+}
+
 /* Sidebar Filters Component */
 .sideBarFilter .ant-select{
   width: 100%;
@@ -112,7 +135,24 @@
   width: 100%;  
 }
 
+/* Detail Product */
+.detailProduct .description{
+  font-size: 16px;
+}
+.detailProduct .total{
+  text-align: right;
+}
+.detailProduct .ant-calendar-picker-input{
+  height: 100%;
+}
+.detailProduct .ant-calendar-picker-input > input, .detailProduct .ant-calendar-picker-input > span{
+  width: 100%;
+}
+
 /* Utlities classes */
 .transparent{
   background-color: transparent !important;
+}
+.text-center{
+  text-align: center !important;
 }

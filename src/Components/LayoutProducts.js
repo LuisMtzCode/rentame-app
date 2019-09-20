@@ -1,33 +1,36 @@
 import React, { Component } from 'react'
 import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom'
+import axios from 'axios';
 
 import ListProducts from './ListProducts';
+import DetailProduct from './DetailProduct';
 import AddProduct from './AddProduct';
 import SidebarFilters from './SidebarFilters';
-import Logo from '../assets/img/bg-header.jpg';
 
 export default class LayoutProducts extends Component {
     constructor(props){
         super(props);
+
+        axios.get(process.API_URL + 'products')
+        .then(products => {
+            this.setState({products: products.data, loading: false});
+        });
+
         this.state = {
-            products: [
-                {
-                    id:123,
-                    name: 'Product 1',
-                    img: Logo
-                },
-                {
-                    id:1234,
-                    name: 'Product 2',
-                    img: Logo
-                },
-                {
-                    id:12345,
-                    name: 'Product 3',
-                    img: Logo
-                },
-            ]
+            loading: true,
+            categories: this.props.categories
+        };
+    }
+    handlerFilter(evt){
+        console.log(evt.target);
+    }
+    
+    componentDidUpdate(prevProps) {
+        if(prevProps.categories.length !== this.props.categories.length) {
+            this.setState({
+                categories: this.props.categories
+            });
         }
     }
 
@@ -39,10 +42,11 @@ export default class LayoutProducts extends Component {
                         <Route path="/products/add">
                             <AddProduct/>
                         </Route>
+                        <Route path="/products/rent/:id" component={DetailProduct}></Route>
                         <Route path="/products">
-                            <SidebarFilters />
+                            <SidebarFilters categories={this.state.categories} handlerFilter={this.handlerFilter}/>
                             <Layout style={{ padding: '0 24px 24px', background: '#fff' }}>
-                                <ListProducts products={this.state.products} />
+                                <ListProducts loading={this.state.loading} products={this.state.products} />
                             </Layout>
                         </Route>
                     </Switch>

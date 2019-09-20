@@ -6,9 +6,9 @@ import axios from 'axios';
 export default class Login extends Component {
     constructor(props){
         super(props);
-        console.log(this.props)
+        var visible = this.props.modalVisible ? this.props.modalVisible : false
         this.state = {
-            visible: false,
+            visible: visible,
             loading: false,
             userName: '',
             password: ''
@@ -50,12 +50,19 @@ export default class Login extends Component {
             password: this.state.password
         })
         .then(confirmation => {
-            this.setState({
-                loading: false,
-                visible: false
-            });
-            this.props.user = confirmation;
-            console.log('confirmation', this.props.user);
+            if(Object.entries(confirmation.data).length > 0){
+                this.setState({
+                    loading: false,
+                    visible: false
+                });
+                this.props.handlerUser(confirmation.data);
+            }
+            else{
+                this.setState({
+                    loading: false
+                });
+            }
+            
         });
     }
 

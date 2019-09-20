@@ -7,48 +7,47 @@ const { SubMenu } = Menu;
 
 export default withRouter(class Categories extends Component {
     constructor(props){
-        super(props)
-        this.categories = [
-            {
-                title: 'Inicio',
-                slug: '/',
-                icon: 'home',
-                options: []
-            },
-            {
-                title: 'Productos',
-                slug: '/products',
-                icon: 'shop',
-                options: []
-            },
-            {
-                title: 'Categorías',
-                slug: '',
-                icon: 'setting',
-                options: [
-                    {
-                        title: 'Option 1',
-                        url: '',
-                    },
-                    {
-                        title: 'Option 2',
-                        url: '',
-                    }
-                ]
-            },
-            {
-                title: 'Vender',
-                slug: '/products/add',
-                icon: 'notification',
-                options: []
-            },
-            {
-                title: 'Ayuda',
-                slug: 'help',
-                icon: 'question',
-                options: []
-            },
-        ];
+        super(props);
+        this.state = {
+            categories : [
+                {
+                    title: 'Inicio',
+                    slug: '/',
+                    icon: 'home',
+                    options: []
+                },
+                {
+                    title: 'Productos',
+                    slug: '/products',
+                    icon: 'shop',
+                    options: []
+                },
+                {
+                    title: 'Mis rentas',
+                    slug: '/rents',
+                    icon: 'shop',
+                    options: []
+                },
+                {
+                    title: 'Categorías',
+                    slug: '',
+                    icon: 'setting',
+                    options: []
+                },
+                {
+                    title: 'Vender',
+                    slug: '/products/add',
+                    icon: 'notification',
+                    options: []
+                },
+                {
+                    title: 'Ayuda',
+                    slug: 'help',
+                    icon: 'question',
+                    options: []
+                },
+            ]
+        };
     }
 
     changeRoute(path){
@@ -56,12 +55,28 @@ export default withRouter(class Categories extends Component {
             this.props.history.push(path);
         }
     }
-    
+
+    componentDidUpdate(prevProps) {
+
+        if(prevProps.categories.length !== this.props.categories.length) {
+            var categories = [];
+            this.props.categories.forEach(category => {
+                categories.push({title: category, url: ''});
+            });
+            let cat = this.state.categories;
+            cat[3].options = categories;
+            
+            this.setState({
+                categories: cat
+            });
+        }
+    }
+
     render() {
         return (
             <Header className="categories">
                 <Menu mode="horizontal">
-                {this.categories.map(category => {
+                {this.state.categories.map(category => {
                     return <SubMenu
                         title={
                             <span>
